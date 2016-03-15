@@ -1,0 +1,70 @@
+<div class="modal-header">
+  <h3 class="modal-title" ng-if="mode==='add'">Add Item</h3>
+  <h3 class="modal-title" ng-if="mode==='edit'">Edit Item</h3>
+</div>
+<form class="form-horizontal" role="form" id="blog" novalidate="novalidate" name="blogform" ui-form="modifyBlog" ng-submit="submit()">
+  <div class="modal-body">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="publishDateTime">Publish Date and Time</label>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <input ng-class="{'error':blogform.publishDateTime.$invalid && blogform.publishDateTime.$dirty}" type="text" class="form-control" name="publishDateTime" id="publishDateTime" datetime-picker="dd MMM yyyy HH:mm" data-ng-model="scope.blog.publishDateTime" placeholder="Enter Publish Date and Time" is-open="scope.isOpen" ui-required/>
+          <span class="input-group-addon">
+                <i class="fa fa-calendar" ng-click="scope.openCalendar($event, prop)"></i></span>
+          <label ng-show="blogform.publishDateTime.$invalid && blogform.publishDateTime.$dirty" id="publishDateTime-error" class="error-label date-error" for="publishDateTime">Please Enter a Date</label>
+        </div>
+      </div>
+      <div class="col-md-12 blog-modal-select pull-left">
+        <div class="element-container row">
+          <label class="col-md-3 control-label" for="title">Title</label>
+          <div class="col-md-9">
+            <input ng-class="{'error':storeform.title.$invalid && storeform.title.$dirty}" type="text" class="form-control" id="title" name="scope.blog.title" data-ng-model="scope.blog.title" placeholder="Enter a title" ui-required>
+            <label ng-show="storeform.title.$invalid && storeform.title.$dirty" id="title-error" class="error-label" for="title">Please Enter a Title</label>
+          </div>
+          <div ng-repeat="blog in scope.blog.blogContent">
+            <div ng-if="blog.type===1">
+              <label class="col-md-3 control-label" for="title">Image</label>
+              <div class="col-md-7">
+                <input ng-class="{'error':storeform.title.$invalid && storeform.title.$dirty}" type="file" class="form-control" name="scope.blog.blogContent[$index].name">
+              </div>
+              <span class="fa fa-trash red col-md-1" ng-click="deleteItem($index)"></span>
+            </div>
+            <div ng-if="blog.type===2">
+              <label class="col-md-3 control-label" for="title">Video</label>
+              <div class="col-md-7">
+                <input ng-class="{'error':storeform.title.$invalid && storeform.title.$dirty}" type="text" class="form-control" name="scope.blog.blogContent[$index].name" data-ng-model="scope.blog.blogContent[$index].value" placeholder="Enter URL">
+              </div>
+              <span class="fa fa-trash red col-md-1" ng-click="deleteItem($index)"></span>
+            </div>
+            <div ng-if="blog.type===3">
+              <label class="col-md-3 control-label" for="title">Blog Text</label>
+              <div class="col-md-7">
+                <textarea ng-class="{'error':storeform.title.$invalid && storeform.title.$dirty}" class="form-control" name="scope.blog.blogContent[$index].name" data-ng-model="scope.blog.blogContent[$index].value" placeholder="Enter a title"></textarea>
+              </div>
+              <span class="fa fa-trash red col-md-1" ng-click="deleteItem($index)"></span>
+            </div>
+            <div ng-if="blog.type===4">
+              <label class="col-md-3 control-label" for="title">Sub Heading</label>
+              <div class="col-md-7">
+                <input ng-class="{'error':storeform.title.$invalid && storeform.title.$dirty}" type="text" class="form-control" name="scope.blog.blogContent[$index].name" data-ng-model="scope.blog.blogContent[$index].value" placeholder="Enter a title">
+              </div>
+              <span class="fa fa-trash red col-md-1" ng-click="deleteItem($index)"></span>
+            </div>
+          </div>
+        </div>
+        <!--button for modal-->
+        <select class="form-control select" ng-model="action.select" ng-click="addElement()">
+          <option value="selectToAdd">Add to select</option>
+          <option value="subHeading">Sub Heading</option>
+          <option value="image">Image</option>
+          <option value="video">Video</option>
+          <option value="bodyText">Body Text</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="submit"><span class="capitalize" ng-if="mode==='add'">add</span><span class="capitalize" ng-if="mode==='edit'">save</span></button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</form>

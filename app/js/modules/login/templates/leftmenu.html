@@ -1,0 +1,106 @@
+<div class="page-container">
+  <div class="sidebar-menu toggle-others fixed" ng-class="{collapsed: isCollapsed}">
+    <div class="sidebar-menu-inner" scrollable>
+      <header class="logo-env">
+        <div class="logo">
+          <a href="" class="logo-expanded">
+            <div class="logo-text">Kevin Hart</div>
+          </a>
+          <a ng-click="doToggleMenu()" data-toggle="sidebar" class="logo-collapsed color-white">
+            <i class="fa-bars menu-btn"></i>
+          </a>
+        </div>
+        <div class="logo pull-right">
+          <a ng-click="doToggleMenu()" data-toggle="sidebar" class="hidden-xs logo-expanded color-white">
+            <i class="fa-bars menu-btn"></i>
+          </a>
+        </div>
+        <div class="mobile-menu-toggle visible-xs">
+          <a ng-click="toggleMobileMenu()" data-toggle="mobile-menu">
+            <i class="fa-bars"></i>
+          </a>
+        </div>
+      </header>
+      <section class="sidebar-user-info" ng-class="{'mobile-is-visible':showMobileMenu}">
+        <div class="sidebar-user-info-inner">
+          <a href="#" class="user-profile">
+            <img src="http://files.parsetfss.com/3c31a68b-97c9-46f6-872e-02e75e73a53a/tfss-b86fafbb-fb67-4848-94b6-d28f44fc05ac-default_avatar.png" width="60" height="60" class="img-circle img-corona" alt="user-pic" />
+            <span>
+                <strong>{{userData.name}}Username</strong>
+                <!-- <span class="role">{{userData.formattedUsertype}}</span> -->
+            </span>
+          </a>
+          <ul class="user-links list-unstyled">
+            <li ng-class="getActiveClass('dashboard.editprofile')">
+              <a ng-click="resetMobileMenu(dashboard.editprofile)" title="Edit profile" ui-sref="dashboard.editprofile">
+                <i class="fa fa-pencil"></i>
+                <span>Edit profile</span>
+                <!-- <span ng-show="userData.usertype === 'vendor'">View profile</span> -->
+              </a>
+            </li>
+            <li>
+              <ui-logout-modal scope="scope">
+                <a class="show-pointer" title="Log out">
+                  <i ng-hide="loading" class="fa-power-off"></i>
+                  <i ng-show="loading" class='fa fa-spin fa-spinner btn-loading-icon'></i> Logout
+                </a>
+              </ui-logout-modal>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <ul id="main-menu" class="main-menu" ng-class="{'mobile-is-visible':showMobileMenu}">
+        <!-- <li ng-class="getActiveClass('dashboard.globalSetting')">
+          <a ng-click="resetMobileMenu('dashboard.globalSetting')" ui-sref="dashboard.globalSetting">
+            <i class="fa fa-cog"></i>
+            <span class="title">Global Settings</span>
+          </a>
+        </li>
+        <li ng-class="getActiveClass('dashboard.media')">
+          <a ng-click="resetMobileMenu('dashboard.media')" ui-sref="dashboard.media">
+            <i class="fa fa-video-camera"></i>
+            <span class="title">Media</span>
+          </a>
+        </li>
+        <li ng-class="getActiveClass('dashboard.store')">
+          <a ng-click="resetMobileMenu('dashboard.store')" ui-sref="dashboard.store">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="title">Store</span>
+          </a>
+        </li>
+        <li ng-class="getActiveClass('dashboard.blog')">
+          <a ng-click="resetMobileMenu('dashboard.blog')" ui-sref="dashboard.blog">
+            <i class="fa fa-rss-square"></i>
+            <span class="title">Blog</span>
+          </a>
+        </li>
+        <li ng-class="getActiveClass('dashboard.social')">
+          <a ng-click="resetMobileMenu('dashboard.social')" ui-sref="dashboard.social">
+            <i class="fa fa-comment"></i>
+            <span class="title">Social</span>
+          </a>
+        </li> -->
+        <li ng-class="getActiveClass('dashboard.userAccounts')">
+          <a ng-click="resetMobileMenu('dashboard.userAccounts')" ui-sref="dashboard.userAccounts">
+            <i class="fa fa-user"></i>
+            <span class="title">User Accounts</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-content">
+    <ui-view class="content-template"></ui-view>
+    <footer class="main-footer sticky footer-type-1">
+      <div class="footer-inner">
+        <!-- Add your copyright text here -->
+        <div class="footer-text">
+          &copy;&nbsp;
+          <span>2016</span>
+          <strong>Kevin Hart</strong> by
+          <a href="" target="_blank">www.innofied.com</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>

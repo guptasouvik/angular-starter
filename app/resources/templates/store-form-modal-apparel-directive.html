@@ -1,0 +1,54 @@
+<div class="modal-header">
+  <h3>Apparel</h3>
+  <h4 class="modal-title" ng-if="mode==='add'">Add Item</h4>
+  <h4 class="modal-title" ng-if="mode==='edit'">Edit Item</h4>
+</div>
+<form class="form-horizontal" role="form" id="store" novalidate="novalidate" name="storeform" ui-form="modifyStoreApparels">
+  <div class="modal-body">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="price">Price</label>
+      <div class="col-sm-9">
+        <input ng-class="{'error':storeform.price.$invalid && storeform.price.$dirty}" type="number" class="form-control" id="price" name="price" data-ng-model="scope.storeApparels.price" placeholder="Enter the price" ui-required>
+        <label ng-show="storeform.price.$invalid && storeform.price.$dirty" id="price-error" class="error-label" for="price">Please Enter a valid Price</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="thumbnail">Thumbnail</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeform.thumbnail.$invalid && storeform.thumbnail.$dirty}" type="file" class="form-control" id="thumbnail" name="thumbnail" data-ng-model="scope.storeApparels.thumbnail" placeholder="Enter thumbnail" xui-required>
+        <label ng-show="storeform.thumbnail.$invalid && storeform.thumbnail.$dirty" id="thumbnail-error" class="error-label" for="thumbnail">Please Enter a thumbnail</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="title">Title</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeform.title.$invalid && storeform.title.$dirty}" type="text" class="form-control" id="title" name="title" data-ng-model="scope.storeApparels.title" placeholder="Enter title" ui-required>
+        <label ng-show="storeform.title.$invalid && storeform.title.$dirty" id="title-error" class="error-label" for="title">Please Enter a Title</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="search-tags">Search Tags(Sep ",")</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeform.tags.$invalid && storeform.tags.$dirty}" type="text" class="form-control" id="tags" name="tags" data-ng-model="scope.storeApparels.tags" placeholder="Enter tags" ui-required>
+        <label ng-show="storeform.tags.$invalid && storeform.tags.$dirty" id="tags-error" class="error-label" for="tags">Please Enter Search Tags(Sep",")</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="options">Options(Sep ",")</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeform.options.$invalid && storeform.options.$dirty}" type="text" class="form-control" id="options" name="options" data-ng-model="scope.storeApparels.options" placeholder="Enter options" ui-required>
+        <label ng-show="storeform.options.$invalid && storeform.options.$dirty" id="options-error" class="error-label" for="options">Please Enter a Options(Sep ",")</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="description">Description</label>
+      <div class="col-sm-6">
+        <textarea class="form-control autogrow" cols="5" id="field-5" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 86px;" ng-class="{'error':storeform.description.$invalid && mediaform.description.$dirty}" type="text" id="description" name="description" data-ng-model="scope.storeApparels.description" placeholder="Enter description" ui-required></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="submit" xng-click="scope.modifyMedia()"><span class="capitalize" ng-if="mode==='add'">add</span><span class="capitalize" ng-if="mode==='edit'">save</span></button>
+    <button class="btn btn-warning" type="reset" ng-click="cancel()">Cancel</button>
+  </div>
+</form>

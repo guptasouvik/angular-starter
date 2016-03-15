@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h3 class="modal-title">Send a Reset Password Link</h3>
+</div>
+<div class="modal-body text-center">
+  <form role="form">
+    <div class="form-group">
+      <div class="radio">
+        <label>
+          <input type="radio" name="radio-active"> Active
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="radio-suspended"> Suspended
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="radio-closed"> Closed
+        </label>
+      </div>
+      <div>
+        <button class="btn btn-primary">confirm</button>
+        <button class="btn btn-warning" type="button" ng-click="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary">Permanently Destroy User Account</button>
+</div>

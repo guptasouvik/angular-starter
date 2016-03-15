@@ -1,0 +1,23 @@
+{
+  "name": "Kevin_Hart_Admin_Panel",
+  "version": "1.0.0",
+  "description": "Kevin_Hart is an app for all the things related to Kevin Hart.",
+  "authors": "Innofied",
+  "dependencies": {
+    "angular": "1.4.7",
+    "bootstrap": "3.3.6",
+    "angular-bootstrap": "0.14.3",
+    "angular-ui-router": "0.2.15",
+    "jquery": "~2.1.4",
+    "datatables": "~1.10.10",
+    "angular-datatables": "~0.5.1",
+    "angular-nanoscroller": "~0.2.1",
+    "angular-animate": "~1.4.8",
+    "angular-toastr": "~1.6.0",
+    "bootstrap-ui-datetime-picker": "~2.0.4"
+  },
+  "devDependencies": {
+    "angular-ui-validator": "*",
+    "angular-ui-sortable": "~0.13.4"
+  }
+}

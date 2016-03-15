@@ -1,0 +1,102 @@
+<div class="page-title">
+  <div class="title-env">
+    <h1 class="title">Edit Profile</h1>
+    <p class="description">
+      Edit your profile details
+    </p>
+  </div>
+</div>
+<div class="page-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default mb0">
+        <div class="panel-heading">
+          <h3 class="panel-title">Profile Details</h3>
+        </div>
+        <div class="panel-body">
+          <form role="form" class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="name">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" data-ng-model="formData.name" placeholder="Name">
+              </div>
+            </div>
+            <div class="form-group-separator"></div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="gender">Gender</label>
+              <div class="col-sm-10">
+                <p>
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" data-ng-model="formData.gender" value="1"> Male
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" data-ng-model="formData.gender" value="-1"> Female
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" data-ng-model="formData.gender" value="0"> Others
+                  </label>
+                </p>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="button" ng-class="{'disabled':loading}" class="btn btn-info btn-single pull-right" ng-click="submitForm()">
+                <i ng-show="loading" class='fa fa-spin fa-spinner btn-loading-icon mr10'></i>Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div ng-show="userData.usertype === 'vendor'" class="page-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default mb0">
+        <div class="panel-heading">
+          <h3 class="panel-title">Profile Details</h3>
+        </div>
+        <div class="panel-body">
+          <form role="form" class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="name">Name</label>
+              <div class="col-sm-9">
+                <input type="text" ng-disabled="true" class="form-control" id="name" data-ng-model="userData.name" placeholder="Not available">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="description">Description</label>
+              <div class="col-sm-9">
+                <input ng-disabled="true" type="text" class="form-control input-dark" name="description" id="description" placeholder="Not available" data-ng-model="userData.description" ui-required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="email">Email</label>
+              <div class="col-sm-9">
+                <input ng-disabled="true" type="text" class="form-control input-dark" name="email" id="email" placeholder="Not available" data-ng-model="userData.email" ui-required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="phoneNumber">Phone Number</label>
+              <div class="col-sm-9">
+                <input ng-disabled="true" type="text" class="form-control input-dark" name="phoneNumber" id="phoneNumber" placeholder="Not available" data-ng-model="userData.phoneNumber" ui-required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="faxNumber">Fax Number</label>
+              <div class="col-sm-9">
+                <input ng-disabled="true" type="text" class="form-control input-dark" name="faxNumber" id="faxNumber" placeholder="Not available" data-ng-model="userData.faxNumber" ui-required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="zips">Zip Codes</label>
+              <div class="col-sm-9">
+                <input ng-disabled="true" type="text" class="form-control input-dark" name="zips" id="zips" placeholder="Not available" data-ng-model="userData.zips" ui-required>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

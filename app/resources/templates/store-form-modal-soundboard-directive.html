@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h3>Soundboard</h3>
+  <h4 class="modal-title" ng-if="mode==='add'">Add Item</h4>
+  <h4 class="modal-title" ng-if="mode==='edit'">Edit Item</h4>
+</div>
+<form class="form-horizontal" role="form" id="store" novalidate="novalidate" name="storeSoundboardForm" ui-form="modifyStoreSoundboard">
+  <div class="modal-body">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="itunesPrice">iTunes Price</label>
+      <div class="col-sm-9">
+        <input ng-class="{'error':storeSoundboardForm.itunesPrice.$invalid && storeSoundboardForm.itunesPrice.$dirty}" type="number" class="form-control" id="itunesPrice" name="itunesPrice" data-ng-model="scope.storeSoundboard.itunesPrice" placeholder="Enter the itunes Price" ui-required>
+        <label ng-show="storeSoundboardForm.itunesPrice.$invalid && storeSoundboardForm.itunesPrice.$dirty" id="itunesPrice-error" class="error-label" for="itunesPrice">Please Enter a valid Price</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="googlePlayPrice">Google Play Price</label>
+      <div class="col-sm-9">
+        <input ng-class="{'error':storeSoundboardForm.googlePlayPrice.$invalid && storeSoundboardForm.googlePlayPrice.$dirty}" type="number" class="form-control" id="googlePlayPrice" name="googlePlayPrice" data-ng-model="scope.storeSoundboard.googlePlayPrice" placeholder="Enter the google Play Price" ui-required>
+        <label ng-show="storeSoundboardForm.googlePlayPrice.$invalid && storeSoundboardForm.googlePlayPrice.$dirty" id="googlePlayPrice-error" class="error-label" for="googlePlayPrice">Please Enter a valid Price</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="soundpack">m4a zip file</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeSoundboardForm.soundpack.$invalid && storeSoundboardForm.soundpack.$dirty}" type="file" class="form-control" id="soundpack" name="soundpack" data-ng-model="scope.storeSoundboard.soundpack" placeholder="Enter soundpack" xui-required>
+        <label ng-show="storeSoundboardForm.soundpack.$invalid && storeSoundboardForm.soundpack.$dirty" id="soundpack-error" class="error-label" for="soundpack">Please Enter a m4a zip file</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="thumbnail">Thumbnail</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeSoundboardForm.thumbnail.$invalid && storeSoundboardForm.thumbnail.$dirty}" type="file" class="form-control" id="thumbnail" name="thumbnail" data-ng-model="scope.storeSoundboard.thumbnail" placeholder="Enter thumbnail" xui-required>
+        <label ng-show="storeSoundboardForm.thumbnail.$invalid && storeSoundboardForm.thumbnail.$dirty" id="thumbnail-error" class="error-label" for="thumbnail">Please Enter a thumbnail</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="title">Title</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeSoundboardForm.title.$invalid && storeSoundboardForm.title.$dirty}" type="text" class="form-control" id="title" name="title" data-ng-model="scope.storeSoundboard.title" placeholder="Enter title" ui-required>
+        <label ng-show="storeSoundboardForm.title.$invalid && storeSoundboardForm.title.$dirty" id="title-error" class="error-label" for="title">Please Enter a Title</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="description">Description</label>
+      <div class="col-sm-6">
+        <textarea class="form-control autogrow" cols="5" id="field-5" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 86px;" ng-class="{'error':storeSoundboardForm.description.$invalid && mediaform.description.$dirty}" type="text" id="description" name="description" data-ng-model="scope.storeSoundboard.description" placeholder="Enter description" ui-required></textarea>
+        <label ng-show="storeSoundboardForm.description.$invalid && storeSoundboardForm.description.$dirty" id="description-error" class="error-label" for="description">Please Enter a Description</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="submit" xng-click="scope.modifyMedia()"><span class="capitalize" ng-if="mode==='add'">add</span><span class="capitalize" ng-if="mode==='edit'">save</span></button>
+    <button class="btn btn-warning" type="reset" ng-click="cancel()">Cancel</button>
+  </div>
+</form>

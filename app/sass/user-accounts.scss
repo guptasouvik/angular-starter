@@ -1,0 +1,107 @@
+.admin-user-accounts {
+  .search {
+    width: 40%;
+    float: left;
+    button {
+      height: 30px;
+      border: none;
+      padding: 0;
+      margin-left: 5px !important;
+      i {
+        color: #fff;
+        font-size: 16px;
+        padding: 0 10px;
+      }
+    }
+  }
+  .panel-body {
+    .user-table {
+      margin-top: 20px;
+    }
+    td {
+      cursor: pointer;
+    }
+    .address {
+      .badge {
+        font-size: 12px !important;
+      }
+    }
+    clear: both;
+    row {
+      margin-top: 10px;
+    }
+  }
+}
+
+.account-status-modal {
+  .form-group {
+    ul {
+      list-style: none;
+      margin-left: 35%;
+    }
+    .modal-buttons {
+      button {
+        width: 20%;
+      }
+    }
+  }
+}
+
+.account-status-footer {
+  button {
+    margin-left: 60px;
+    width: 80%;
+  }
+}
+
+.order-details-modal {
+  th {
+    text-align: center;
+  }
+}
+
+.details {
+  clear: both;
+}
+
+.user-details-form {
+  h3 {
+    text-align: center;
+    margin-top: 5px;
+  }
+  background-color: #fff !important;
+  padding: 10px;
+  margin-top: 10px;
+  table {
+    td {
+      width: 50%;
+    }
+  }
+}
+
+.order-table {
+  h3 {
+    text-align: center;
+    margin-top: 13px;
+  }
+  background-color: #fff;
+  margin-top: 10px;
+  width: 31.5%;
+  margin-left: 10px;
+  tbody {
+    td {
+      a {
+        display: block;
+        width: 100%;
+        color: #000 !important;
+        text-decoration: none;
+      }
+    }
+  }
+  .no-order {
+    text-align: center;
+    font-size: 15px;
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+}

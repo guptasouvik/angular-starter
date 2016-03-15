@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h2>Bill Details</h2>
+</div>
+<div class="modal-body text-center order-details-modal">
+  <h3 class="modal-title">order details {{order.orderId}}</h3>
+  <div class="table-responsive">
+    <table class="table table-small-font table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Date</th>
+          <th>Price</th>
+          <th>Shopping Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{order.item}}</td>
+          <td>{{order.date}}</td>
+          <td>{{order.price}}</td>
+          <td>
+            <div>{{order.shippingAddress.name}}</div>
+            <div>{{order.shippingAddress.street}}</div>
+            <div>{{order.shippingAddress.city}}, {{order.shippingAddress.state}} {{order.shippingAddress.zip}}</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

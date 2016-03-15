@@ -1,0 +1,99 @@
+<div class="modal-header">
+  <h3>Films</h3>
+  <h4 class="modal-title" ng-if="mode==='add'">Add Item</h4>
+  <h4 class="modal-title" ng-if="mode==='edit'">Edit Item</h4>
+</div>
+<form class="form-horizontal" role="form" id="storeFilms" novalidate="novalidate" name="storeFilmsform" ui-form="modifyStoreFilms">
+  <div class="modal-body">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="ituesToken">iTunes Affilate Token(at)</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeFilmsform.ituesToken.$invalid && storeFilmsform.itunesToken.$dirty}" type="text" class="form-control" id="itunesToken" name="itunesToken" data-ng-model="scope.storeFilmsAndAlbums.itunesToken" placeholder="Enter iTunes Affilate Token" ui-required>
+        <label ng-show="storeFilmsform.itunesToken.$invalid && storeFilmsform.itunesToken.$dirty" id="itunesToken-error" class="error-label" for="itunesToken">Please Enter Tunes Affilate Token</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="itunesText">iTunes campaign Text(ct)</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeFilmsform.itunesText.$invalid && storeFilmsform.itunesText.$dirty}" type="text" class="form-control" id="itunesText" name="itunesText" data-ng-model="scope.storeFilmsAndAlbums.itunesText" placeholder="Enter iTunes campaign Text" ui-required>
+        <label ng-show="storeFilmsform.itunesText.$invalid && storeFilmsform.itunesText.$dirty" id="itunesText-error" class="error-label" for="itunesText">Please Enter iTunes campaign Text</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="itunesUrl">iTunes URL</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeFilmsform.itunesUrl.$invalid && storeFilmsform.itunesUrl.$dirty}" type="text" class="form-control" id="itunesUrl" name="itunesUrl" data-ng-model="scope.storeFilmsAndAlbums.itunesUrl" placeholder="Enter iTunes URL" ui-url ui-required>
+        <label ng-show="storeFilmsform.itunesUrl.$invalid && storeFilmsform.itunesUrl.$dirty" id="itunesUrl-error" class="error-label" for="itunesUrl">Please Enter a valid URL</label>
+      </div>
+      <button class="col-sm-2 btn btn-primary">Test URL</button>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="googlePlayUrl">Google Play URL</label>
+      <div class="col-sm-6">
+        <input ng-class="{'error':storeFilmsform.googlePlayUrl.$invalid && storeFilmsform.googlePlayUrl.$dirty}" type="text" class="form-control" id="googlePlayUrl" name="googlePlayUrl" data-ng-model="scope.storeFilmsAndAlbums.googlePlayUrl" placeholder="Enter Google Play URL" ui-url ui-required>
+        <label ng-show="storeFilmsform.googlePlayUrl.$invalid && storeFilmsform.googlePlayUrl.$dirty" id="url-error" class="error-label" for="googlePlayUrl">Please Enter a valid URL</label>
+      </div>
+      <button class="col-sm-2 btn btn-primary">Test URL</button>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="thumbnail">Thumbnail</label>
+      <div class="col-sm-3">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="scope.storeFilmsAndAlbums.isInheritThumbnail"> Inherit from URL
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <input ng-disabled="scope.storeFilmsAndAlbums.isInheritThumbnail" ng-class="{'error':storeFilmsform.thumbnail.$invalid && storeFilmsform.thumbnail.$dirty}" type="file" class="form-control" id="thumbnail" name="thumbnail" data-ng-model="scope.storeFilmsAndAlbums.thumbnail" placeholder="Enter thumbnail" xui-required>
+        <label ng-show="storeFilmsform.thumbnail.$invalid && storeFilmsform.thumbnail.$dirty" id="thumbnail-error" class="error-label" for="thumbnail">Please Enter a thumbnail</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="title">Title</label>
+      <div class="col-sm-3">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="scope.storeFilmsAndAlbums.isInheritTitle"> Inherit from URL
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <input ng-disabled="scope.storeFilmsAndAlbums.isInheritTitle" ng-class="{'error':storeFilmsform.title.$invalid && storeFilmsform.title.$dirty}" type="text" class="form-control" id="title" name="title" data-ng-model="scope.storeFilmsAndAlbums.title" placeholder="Enter title" ui-required>
+        <label ng-show="storeFilmsform.title.$invalid && storeFilmsform.title.$dirty" id="title-error" class="error-label" for="title">Please Enter a Title</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="title">Search Tags(sep",")</label>
+      <div class="col-sm-3">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="scope.storeFilmsAndAlbums.isInheritTags"> Inherit from URL
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <input ng-disabled="scope.storeFilmsAndAlbums.isInheritTags" ng-class="{'error':storeFilmsform.tags.$invalid && storeFilmsform.tags.$dirty}" type="text" class="form-control" id="tags" name="tags" data-ng-model="scope.storeFilmsAndAlbums.tags" placeholder="Enter Search Tags" ui-required>
+        <label ng-show="storeFilmsform.tags.$invalid && storeFilmsform.tags.$dirty" id="tags-error" class="error-label" for="tags">Please Enter Search Tags</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="description">Description</label>
+      <div class="col-sm-3">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="scope.storeFilmsAndAlbums.isInheritDescription"> Inherit from URL
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <textarea ng-disabled="scope.storeFilmsAndAlbums.isInheritDescription" class="form-control autogrow" cols="5" id="field-5" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 86px;" ng-class="{'error':storeFilmsform.description.$invalid && mediaform.description.$dirty}" type="text" id="description" name="description" data-ng-model="scope.storeFilmsAndAlbums.description" placeholder="Enter description" ui-required></textarea>
+        <label ng-show="storeFilmsform.description.$invalid && storeFilmsform.description.$dirty" id="description-error" class="error-label" for="description">Please Enter a Description</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="submit" xng-click="scope.modifyMedia()"><span class="capitalize" ng-if="mode==='add'">add</span><span class="capitalize" ng-if="mode==='edit'">save</span></button>
+    <button class="btn btn-warning" type="reset" ng-click="cancel()">Cancel</button>
+  </div>
+</form>

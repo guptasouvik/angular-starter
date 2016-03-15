@@ -1,0 +1,64 @@
+<div class="panel panel-reset">
+  <div class="panel-heading panel-heading-reset">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="breadcrumb-env add-new-agenda-wrapper">
+          <form>
+            <div class="form-group">
+              <select class="form-control" id="sboxit-1" ng-model="action.select" ng-change="setStoreState()">
+                <option value="apparel">Apparel</option>
+                <option value="films">Films And Albums</option>
+                <option value="soundboard">SoundBoard</option>
+              </select>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 common-panel-heading">
+        <div class="panel-options pull-right">
+          <a href="" class="icon-link icon-gear">
+            <div ui-manage-sequence-modal scope="scope" list="uiStoreList" class="btn btn-success"><i class="fa fa-gear icons"></i>&nbsp;Manage Sequence</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel-body ">
+  <div class="post-queue">
+    <h4>Items Currently Offered</h4>
+    <div class="table-responsive">
+      <table class="table table-small-font table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Edit Action</th>
+            <th>Delete Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in uiStoreList | startFrom:currentPage*pageSize | limitTo:pageSize">
+            <td> {{item.title}} </td>
+            <td>
+              <ui-form-modal scope="scope" mode="edit" ui-post="{{item}}">
+                <i class="fa fa-pencil-square-o green"></i>
+              </ui-form-modal>
+            </td>
+            <td>
+              <ui-delete-modal scope="scope">
+                <i class="fa fa-trash red"></i>
+              </ui-delete-modal>
+            </td>
+        </tbody>
+      </table>
+    </div>
+    <div class="pull-right">
+      <button class="btn btn-default btn-info" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+      </button>
+      <button class="btn btn-default btn-info" ng-disabled="currentPage >= uiStoreList.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="panel panel-reset">
+  <div class="panel-heading panel-heading-reset common-panel-heading">
+    <div class="panel-options pull-right">
+      <a href="" class="icon-link icon-gear">
+        <div ui-manage-sequence-modal scope="scope" list="uiList" class="btn btn-success"><i class="fa fa-gear icons"></i>&nbsp;Manage Sequence</div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="panel-body ">
+  <div class="post-queue">
+    <div class="table-responsive">
+      <table class="table table-small-font table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Title</th>
+            <th>Edit Action</th>
+            <th>Delete Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in uiList | startFrom:currentPage*pageSize | limitTo:pageSize">
+            <td>{{item.status}}</td>
+            <td> {{item.date | date : format : timezone}} </td>
+            <td> {{item.time}} </td>
+            <td> {{item.blogContent[0].value || item.title}} </td>
+            <td>
+              <ui-form-modal scope="scope" mode="edit" ui-item="{{item}}">
+                <i class="fa fa-pencil-square-o green"></i>
+              </ui-form-modal>
+            </td>
+            <td>
+              <ui-delete-modal scope="scope">
+                <i class="fa fa-trash red"></i></i>
+              </ui-delete-modal>
+            </td>
+        </tbody>
+      </table>
+    </div>
+    <div class="pull-right">
+      <button class="btn btn-default btn-info" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        Previous
+      </button>
+      <button class="btn btn-default btn-info" ng-disabled="currentPage >= uiList.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+        Next
+      </button>
+    </div>
+  </div>
+</div>

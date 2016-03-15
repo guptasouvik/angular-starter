@@ -1,0 +1,86 @@
+<div class="page-title" ng-init="getUser()">
+  <div class="title-env admin-social-panel-heading">
+    <h3 class="title">Account Details</h3>
+    <p>
+      Display User details
+    </p>
+  </div>
+  <div class="breadcrumb-env add-new-agenda-wrapper">
+    <!--button for modal-->
+    <select class="form-control select pull-right" ng-model="action.select" ng-change="selectAction()">
+      <option value="select-action">Select Account Action</option>
+      <option ui-password-link-modal scope="scope" value="password-link">
+        Send Password Reset Link
+      </option>
+      <option ui-account-status-modal scope="scope" userId="{{user}}" value="account-status">Change Account Status</option>
+    </select>
+  </div>
+</div>
+<div class="panel-body details">
+  <div class="row">
+    <div class=" col-md-8 user-details-form">
+      <h3>User Details</h3>
+      <div class="table-responsive">
+        <table class="table table-small-font table-bordered table-striped">
+          <tbody>
+            <tr>
+              <td>Email:</td>
+              <td>{{user.email}}</td>
+            </tr>
+            <tr>
+              <td>Mobile Phone:</td>
+              <td>{{user.mobile}}</td>
+            </tr>
+            <tr>
+              <td>Account Status:</td>
+              <td>{{user.accountStatus}}</td>
+            </tr>
+            <tr>
+              <td>Subscriber Since:</td>
+              <td>{{user.subscriptionDate | date:"MM/dd/yyyy"}}</td>
+            </tr>
+            <tr>
+              <td>Next Payment Due:</td>
+              <td>{{user.nextPaymentDate | date:"MM/dd/yyyy"}}</td>
+            </tr>
+            <tr>
+              <td>Amount:</td>
+              <td>{{user.amount}}</td>
+            </tr>
+            <tr ng-repeat="address in user.address track by $index">
+              <td>Shipping Address {{$index +1}}:</td>
+              <td>
+                <div class="badge font-12">{{address.label}}</div>
+                <div>{{address.streetOne}}</div>
+                <div>{{address.streetTwo}}</div>
+                <div>{{address.city}}, {{address.state}} {{address.zip}}</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4 order-table">
+      <h3>Order Details</h3>
+      <div class="gray-background no-order gray-text" ng-if="!user.orders">No Orders Found</div>
+      <div class="table-responsive" ng-if="user.orders">
+        <table class="table table-small-font table-bordered table-striped">
+          <thead>
+            <th>Order Id</th>
+            <th>Date</th>
+            <th>Price</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="order in user.orders" ng-click="details(order)">
+              <span>
+                  <td class="td" ui-form-modal scope="scope" orderitem="{{order}}">{{order.orderId}}</td>
+                  <td ui-form-modal scope="scope" orderitem="{{order}}">{{order.date}}</td>
+                  <td ui-form-modal scope="scope" orderitem="{{order}}">{{order.price}}</td>
+              </span>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

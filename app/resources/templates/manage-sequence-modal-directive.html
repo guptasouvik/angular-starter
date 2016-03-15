@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h3 class="modal-title">Manage Sequence</h3>
+</div>
+<div class="modal-body manage-sequence-modal">
+  <ul ui-sortable="sortableOptions" ng-model="tmpList" class="list itemList clearfix" ng-class="{'floatingList':isHorizontal}"><span ng-repeat="item in tmpList" class="item white-text inflate"><span class="fa fa-arrows"></span><span class="sequence-text">{{item.title || item.tab}}</span></span>
+  </ul>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary add-update-btn" type="submit" ng-click="saveSequence()">Save</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

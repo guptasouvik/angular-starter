@@ -1,0 +1,33 @@
+<div class="modal-header">
+  <h3 class="modal-title">Change Account Status</h3>
+</div>
+<div class="modal-body account-status-modal">
+  <form role="form" ng-submit="submit()">
+    <div class="form-group">
+      <ul>
+        <li>
+          <label>
+            <input type="radio" value="radioActive" ng-model="radio.value"> Active
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" value="radioSuspended" ng-model="radio.value"> Suspended
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="radio" value="radioClosed" ng-model="radio.value"> Closed
+          </label>
+        </li>
+      </ul>
+      <div class="text-right modal-buttons">
+        <button class="btn btn-primary" type="submit">confirm</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer account-status-footer">
+  <button class="btn btn-primary btn-lg btn-block" ng-click="removeUser()">Permanently Destroy User Account</button>
+</div>

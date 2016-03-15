@@ -1,0 +1,62 @@
+<div class="page-title">
+  <div class="title-env admin-social-panel-heading">
+    <h4 class="title"><i class="fa fa-user"></i>&nbsp;User Accounts</h4>
+    <p>
+      Display User accounts details
+    </p>
+  </div>
+</div>
+<div class="page-content overflow-reset admin-user-accounts" ng-init="loadUsers()">
+  <div class="panel-heading">
+    <form role="form" ng-submit="searchUser()">
+      <div class="input-group search">
+        <input type="text" class="form-control" ng-model="user.searchText" placeholder="Search by email...">
+        <span class="input-group-btn">
+         <button class="btn btn-info btn-icon" type="submit">
+          <span>&nbsp;<i class="fa fa-search"></i></span>
+        </button>
+        </span>
+      </div>
+    </form>
+  </div>
+  <!--panel body-->
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12 user-table">
+        <div class="table-responsive">
+          <table class="table table-small-font table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Mobile Phone</th>
+                <th>Account Status</th>
+                <th>Subscriber Since</th>
+                <th>Next Payment Due</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="user in users | startFrom:currentPage*pageSize | limitTo:pageSize" ng-click="viewUserDetails(user)" class="users-details">
+                <td>{{user.email}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.accountStatus}}</td>
+                <td>{{user.subscriptionDate | date:"MM/dd/yyyy"}}</td>
+                <td>{{user.nextPaymentDate | date:"MM/dd/yyyy"}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--  <ul class="nav nav-list">
+          <li ng-repeat="user in users" ng-click="form(user)">{{user.email}}</li>
+        </ul> -->
+      </div>
+      <div class=" col-sm-12 text-right">
+        <button class="btn btn-default btn-info" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+          Previous
+        </button>
+        <button class="btn btn-default btn-info" ng-disabled="currentPage >= users.length/pageSize - 1" ng-click="currentPage=currentPage+1">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

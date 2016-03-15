@@ -1,0 +1,71 @@
+<div class="modal-header">
+  <h3 class="modal-title" ng-if="mode==='add'">Add Item</h3>
+  <h3 class="modal-title" ng-if="mode==='edit'">Edit Item</h3>
+</div>
+<form class="form-horizontal" role="form" id="media" novalidate="novalidate" name="mediaform" ui-form="modifyMedia">
+  <div class="modal-body">
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="publishDateTime">Publish Date and Time</label>
+      <div class="col-sm-9">
+        <div class="input-group">
+          <input ng-class="{'error':mediaform.publishDateTime.$invalid && mediaform.publishDateTime.$dirty}" type="text" class="form-control" name="publishDateTime" id="publishDateTime" datetime-picker="dd MMM yyyy HH:mm" data-ng-model="scope.media.publishDateTime" placeholder="Enter Publish Date and Time" is-open="scope.isOpen" ui-required/>
+          <span class="input-group-addon">
+                <i class="fa fa-calendar" ng-click="scope.openCalendar($event, prop)"></i></span>
+          <label ng-show="mediaform.publishDateTime.$invalid && mediaform.publishDateTime.$dirty" id="publishDateTime-error" class="error-label date-error" for="publishDateTime">Please Enter a Valid Date</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="url">URL</label>
+      <div class="col-sm-9">
+        <input ng-class="{'error':mediaform.url.$invalid && mediaform.url.$dirty}" type="text" class="form-control" id="url" name="url" data-ng-model="scope.media.url" placeholder="Enter URL" ui-url ui-required>
+        <label ng-show="mediaform.url.$invalid && mediaform.url.$dirty" id="url-error" class="error-label" for="url">Please Enter a valid URL</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="thumbnail">Thumbnail</label>
+      <div class="col-sm-3">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="scope.media.isInheritThumbnail"> Inherit from URL
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <input ng-disabled="scope.media.isInheritThumbnail" ng-class="{'error':mediaform.thumbnail.$invalid && mediaform.thumbnail.$dirty}" type="file" class="form-control" id="thumbnail" name="thumbnail" data-ng-model="scope.media.thumbnail" placeholder="Enter a thumbnail" xui-required>
+        <label ng-show="mediaform.thumbnail.$invalid && mediaform.thumbnail.$dirty" id="thumbnail-error" class="error-label" for="thumbnail">Please Enter a thumbnail</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="title">Title</label>
+      <div class="col-sm-3">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="scope.media.isInheritTitle"> Inherit from URL
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <input ng-disabled="scope.media.isInheritTitle" ng-class="{'error':mediaform.title.$invalid && mediaform.title.$dirty}" type="text" class="form-control" id="title" name="title" data-ng-model="scope.media.title" placeholder="Enter title" ui-required>
+        <label ng-show="mediaform.title.$invalid && mediaform.title.$dirty" id="title-error" class="error-label" for="title">Please Enter a Title</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label" for="description">Description</label>
+      <div class="col-sm-3">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" ng-model="scope.media.isInheritDescription"> Inherit from URL
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <textarea ng-disabled="scope.media.isInheritDescription" class="form-control autogrow" cols="5" id="field-5" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 86px;" ng-class="{'error':mediaform.description.$invalid && mediaform.description.$dirty}" type="text" id="description" name="description" data-ng-model="scope.media.description" placeholder="Enter description" ui-required></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="submit" xng-click="scope.modifyMedia()"><span class="capitalize" ng-if="mode==='add'">add</span><span class="capitalize" ng-if="mode==='edit'">save</span></button>
+    <button class="btn btn-warning" type="reset" ng-click="cancel()">Cancel</button>
+  </div>
+</form>
